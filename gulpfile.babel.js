@@ -13,5 +13,6 @@ gulp.task('html', () => {
 
 gulp.task('sass', () => {
   gulp.src('src/scss/**/*.scss')
+    .pipe(sass())
     .pipe(gulp.dest('dist/css'))
 })
