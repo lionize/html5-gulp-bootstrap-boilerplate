@@ -9,6 +9,8 @@
   "author": "Mark A. Chandler, II",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-preset-es2015": "^6.13.2",
     "gulp": "^3.9.1"
   }
 }
