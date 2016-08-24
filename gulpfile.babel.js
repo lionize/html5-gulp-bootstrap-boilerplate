@@ -5,6 +5,11 @@ import autoprefixer from 'gulp-autoprefixer'
 
 const dirs = {}
 
+const sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded'
+}
+
 gulp.task('default', ['html', 'sass'])
 
 gulp.task('html', () => {
@@ -14,7 +19,7 @@ gulp.task('html', () => {
 
 gulp.task('sass', () => {
   gulp.src('src/scss/**/*.scss')
-    .pipe(sass())
+    .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest('dist/css'))
 })
