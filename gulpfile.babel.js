@@ -22,11 +22,14 @@ gulp.task('html:clean', () => {
   del(['dist/index.html'])
 })
 
-gulp.task('sass', () => {
+gulp.task('sass', ['sass:clean'], () => {
   gulp.src('src/scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(sourcemaps.write())
     .pipe(autoprefixer())
     .pipe(gulp.dest('dist/css'))
+})
+gulp.task('sass:clean', () => {
+  del(['dist/css'])
 })
