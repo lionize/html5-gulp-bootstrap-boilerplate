@@ -3,6 +3,7 @@ import gulp from 'gulp'
 import sass from 'gulp-sass'
 import autoprefixer from 'gulp-autoprefixer'
 import sourcemaps from 'gulp-sourcemaps'
+import del from 'del'
 
 const dirs = {}
 
