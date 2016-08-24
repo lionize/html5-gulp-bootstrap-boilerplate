@@ -14,9 +14,12 @@ const sassOptions = {
 
 gulp.task('default', ['html', 'sass'])
 
-gulp.task('html', () => {
+gulp.task('html', ['html:clean'], () => {
   gulp.src('src/index.html')
     .pipe(gulp.dest('dist'))
+})
+gulp.task('html:clean', () => {
+  del(['dist/index.html'])
 })
 
 gulp.task('sass', () => {
