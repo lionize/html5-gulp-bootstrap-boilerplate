@@ -2,6 +2,7 @@ import gulp from 'gulp'
 
 import sass from 'gulp-sass'
 import autoprefixer from 'gulp-autoprefixer'
+import sourcemaps from 'gulp-sourcemaps'
 
 const dirs = {}
 
@@ -19,7 +20,9 @@ gulp.task('html', () => {
 
 gulp.task('sass', () => {
   gulp.src('src/scss/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(autoprefixer())
     .pipe(gulp.dest('dist/css'))
 })
